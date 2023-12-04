@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    *,
+    html,
+    body {
+      box-sizing: border-box;
+    }
+  
+    body {
+      font-family: theme('fontFamily.primary');
+      position: relative;
+      overscroll-behavior: none;
+    }
+  
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    title,
+    label {
+      font-family: theme('fontFamily.secondary');
+    }
+
+    button {
+        font-family: theme('fontFamily.mono');
+        @apply  transition-all
+                hover:shadow-brut
+                p-1 cursor-pointer 
+                items-center justify-between 
+                rounded-none px-4 py-2 text-sm
+                border-black
+                bg-black/95
+                border-2
+                shadow-md;
+    }
+
+}

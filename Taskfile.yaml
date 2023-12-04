@@ -1,0 +1,8 @@
+version: '3'
+
+tasks:
+  gql:
+    # dir: libs/graphql
+    cmds:
+      - pnpm graphql-codegen
+      - printf '\nexport * from "./graphql";\n' >> libs/graphql/src/lib/index.ts
