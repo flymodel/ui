@@ -1,43 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@tailwind variants;
 
 @layer base {
-    *,
-    html,
-    body {
-      box-sizing: border-box;
-    }
-  
-    body {
-      font-family: theme('fontFamily.primary');
-      position: relative;
-      overscroll-behavior: none;
-    }
-  
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    title,
-    label {
-      font-family: theme('fontFamily.secondary');
-    }
+  *,
+  html,
+  body {
+    box-sizing: border-box;
+  }
 
-    button {
-        font-family: theme('fontFamily.mono');
-        @apply  transition-all
-                hover:shadow-brut
+  body {
+    font-family: theme('fontFamily.primary');
+    position: relative;
+    overscroll-behavior: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  title,
+  label {
+    font-family: theme('fontFamily.secondary');
+  }
+
+  button {
+    font-family: theme('fontFamily.mono');
+    @apply transition-all
                 p-1 cursor-pointer 
                 items-center justify-between 
                 rounded-none px-4 py-2 text-sm
-                border-black
-                bg-black/95
                 border-2
-                shadow-md;
-    }
+                shadow-md text-white/80;
+  }
 
+  .navButtonPrimary {
+    @apply text-red-100
+        hover:text-red-400
+        hover:border-red-300
+        active:border-red-300;
+  }
+  .navButtonSecondary {
+    @apply text-yellow-100
+        hover:text-yellow-400
+        hover:border-yellow-300
+        active:border-yellow-300;
+  }
 }

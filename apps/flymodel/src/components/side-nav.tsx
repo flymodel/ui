@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 import { Button } from './button';
 import { Home, ChevronLeft } from 'react-feather';
 
@@ -18,17 +18,24 @@ export const SideNav: FC = () => {
       className="relative h-screen bg-black/80 transition-colors duration-300"
       onClick={!open ? invNav : undefined}
     >
-      <Button {...common} className={className} icon={Home}>
+      <Button
+        {...common}
+        className={`${className} navButtonSecondary`}
+        icon={Home}
+        color="yellow"
+      >
         Home
       </Button>
       <Button
         {...common}
         onClick={invNav}
-        className={`${className}
-              fixed bottom-0
-          `}
+        className={`
+          ${className}
+          fixed bottom-0
+          navButtonPrimary
+        `}
         icon={ChevronLeft}
-        color="yellow"
+        color="red"
         aria-roledescription={`${open ? 'Close' : 'Open'} Navigation`}
         iconClass={`
                 ${open && 'rotate-180'}

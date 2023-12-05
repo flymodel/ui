@@ -2,7 +2,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
-import path from 'path';
 
 export default defineConfig({
   cacheDir: '../../node_modules/.vite/flymodel',
@@ -12,10 +11,10 @@ export default defineConfig({
     host: 'localhost',
     proxy: {
       '/graphql': {
-        target: 'http://localhost:9000/graphql',
+        target: 'http://127.0.0.1:9009',
       },
       '^/graphql': {
-        target: 'ws://localhost:9000/graphql',
+        target: 'ws://127.0.0.1:9009/graphql',
         ws: true,
       },
     },
@@ -28,17 +27,6 @@ export default defineConfig({
   preview: {
     port: 4200,
     host: 'localhost',
-  },
-
-  css: {
-    postcss: {
-      plugins: [
-        require('tailwindcss')({
-          config: path.join(__dirname, './tailwind.config.js'),
-        }),
-        require('autoprefixer'),
-      ],
-    },
   },
 
   plugins: [react(), nxViteTsPaths()],

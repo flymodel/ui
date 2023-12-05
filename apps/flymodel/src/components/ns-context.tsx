@@ -1,36 +1,35 @@
 // import { Namespace } from '@flymodel/graphql';
-import {
-  FC,
-  PropsWithChildren,
-  createContext,
-  useCallback,
-  useState,
-} from 'react';
+import { Namespace } from '@flymodel/graphql';
+import { atom } from 'recoil';
 
 export type NamespaceContextT = {
-  // namespace?: Namespace;
+  namespace?: Omit<Namespace, '__typename'>;
 };
 
-const NamespaceContext = createContext<
-  NamespaceContextT & {
-    update: (ns: NamespaceContextT) => void;
-  }
->({
-  update(ns) {},
+export const namespaceState = atom<NamespaceContextT>({
+  key: 'namespaceState',
+  default: {},
 });
+// const NamespaceContext = createContext<
+//   NamespaceContextT & {
+//     update: (ns: NamespaceContextT) => void;
+//   }
+// >({
+//   update(ns) {},
+// });
 
-export const NamespaceContextProvider: FC<PropsWithChildren> = ({
-  children,
-}) => {
-  const [ns, update] = useState<NamespaceContextT>({});
-  return (
-    <NamespaceContext.Provider
-      value={{
-        ...ns,
-        update,
-      }}
-    >
-      {children}
-    </NamespaceContext.Provider>
-  );
-};
+// export const NamespaceContextProvider: FC<PropsWithChildren> = ({
+//   children,
+// }) => {
+//   const [ns, update] = useState<NamespaceContextT>({});
+//   return (
+//     <NamespaceContext.Provider
+//       value={{
+//         ...ns,
+//         update,
+//       }}
+//     >
+//       {children}
+//     </NamespaceContext.Provider>
+//   );
+// };

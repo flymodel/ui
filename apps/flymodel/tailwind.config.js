@@ -5,17 +5,20 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   mode: 'jit',
+  darkMode: 'class',
+  purge: [
+    join(__dirname, 'index.html'),
+    join(__dirname, '{src,pages,components,app}/**/*.{ts,tsx,html}'),
+    ...createGlobPatternsForDependencies(__dirname),
+  ],
   content: [
-    join(
-      __dirname,
-      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
-    ),
+    join(__dirname, '{src,pages,components,app}/**/*.{ts,tsx,html}'),
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
     extend: {
       boxShadow: {
-        'brut': 'inset -3px -3px 0px rgb(0 0 0 / 90%)',
+        brut: 'inset -3px -3px 0px rgb(0 0 0 / 90%)',
       },
       fontFamily: {
         primary: ['Poppins', ...defaultTheme.fontFamily.sans],
@@ -23,15 +26,15 @@ module.exports = {
         mono: ['Roboto', ...defaultTheme.fontFamily.mono],
       },
       colors: {
-        'violet-200': '#A8A6FF',
-        'violet-300': '#918efa',
-        'violet-400': '#807dfa',
+        // 'violet-200': '#A8A6FF',
+        // 'violet-300': '#918efa',
+        // 'violet-400': '#807dfa',
         'pink-200': '#FFA6F6',
         'pink-300': '#fa8cef',
         'pink-400': '#fa7fee',
-        'red-200': '#FF9F9F',
-        'red-300': '#fa7a7a',
-        'red-400': '#f76363',
+        // 'red-200': '#FF9F9F',
+        // 'red-300': '#fa7a7a',
+        // 'red-400': '#f76363',
         'orange-200': '#FFC29F',
         'orange-300': '#FF965B',
         'orange-400': '#fa8543',

@@ -10,11 +10,11 @@ export type ButtonProps = {
 };
 
 export const Button: FC<ButtonProps & ComponentProps<'button'>> = ({
-  className,
   icon,
   iconClass,
   hideChildren,
   onClick,
+  className = '',
   color = 'yellow',
   ...props
 }) => {
@@ -22,14 +22,14 @@ export const Button: FC<ButtonProps & ComponentProps<'button'>> = ({
   return (
     <button
       className={`
-        text-yellow-300
-        hover:text-yellow-400
-        hover:border-yellow-300
-        active:border-yellow-300
+        text-${color}-400
+        hover:text-${color}-400
+        hover:border-${color}-300
+        active:border-${color}-300
         flex flex-row space-x-1 items-center
+        bg-black/95 border-black
         ${className}
     `}
-      
       {...props}
       onClick={hideChildren ? undefined : onClick}
     >
